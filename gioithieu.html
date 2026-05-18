@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu | Thế Giới Kẹo Ngọt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Toàn bộ CSS ngọt ngào của bạn giữ nguyên ở đây */
+        body {
+            background-color: #fdfbff;
+            font-family: 'Itim', cursive !important;
+            color: #555;
+        }
+
+        .frame-header {
+            background: #ff8fab;
+            color: white;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        #btn-login {
+            background: #a2d2ff;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        #login {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10001;
+            border-radius: 25px;
+            padding: 30px !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 25px;
+            color: #ff8fab;
+        }
+
+        .navbar {
+            background: white !important;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 5px 20px rgba(162, 210, 255, 0.15);
+            margin-bottom: 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: #ff8fab !important;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #555 !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: #ff8fab !important;
+        }
+
+        .about-highlight {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .highlight-box {
+            background: #ffffff;
+            padding: 15px 25px;
+            border-radius: 20px;
+            border: 2px dashed #a2d2ff;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .highlight-box:hover {
+            background: #a2d2ff;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .review-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .review-card {
+            width: 280px;
+            background: white;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(255, 143, 171, 0.1);
+            text-align: center;
+        }
+
+        .review-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #ff8fab;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #a2d2ff;
+            color: #444;
+            border: none;
+
+
+            border-radius: 0 !important;
+
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            font-family: 'Itim', cursive !important;
+        }
+
+        footer h3 {
+            color: #ff8fab;
+            font-weight: bold;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 0px white;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+
+        footer iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            border: 4px solid white;
+        }
+
+
+        footer a {
+            color: #ff8fab;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+        .btn-candy {
+            background-color: #ff8fab !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 50px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="login">
+        <span class="close">&times;</span>
+        <h3 class="text-center mb-4" style="color: #ff8fab;">Đăng nhập</h3>
+        <div class="mb-3">
+            <label class="form-label">Tài khoản</label>
+            <input type="text" id="user" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mật khẩu</label>
+            <input type="password" id="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+    </form>
+
+    <header class="container-fluid frame-header">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-6 col-md-4">
+                    <i class="fas fa-phone-alt me-2"></i> HOTLINE: 0912345678
+                </div>
+                <div class="col-md-4 d-none d-md-block text-center" style="font-size: 1.1rem;">
+                    🍬 Thế giới kẹo ngọt 🍬
+                </div>
+                <div class="col-6 col-md-4 text-end">
+                    <button type="button" id="btn-login" class="btn px-4 shadow-sm">
+                        <i class="fas fa-user-circle me-1"></i> Đăng Nhập
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        <div class="container">
+            <nav class="navbar navbar-expand-sm navbar-light mt-2">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">🍬 KẸO NGỌT</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item"><a class="nav-link" href="trangchu.html">Trang Chủ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tintuc.html">Tin Tức</a></li>
+                            <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="giohang.html">Giỏ Hàng</a></li>
+
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2 border-info rounded-pill" type="text"
+                                placeholder="Tìm kẹo ngon...">
+                            <button class="btn btn-candy" type="button">Tìm</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+        <div class="about-candy text-center py-5">
+            <h2 class="display-5">Khám Phá Thế Giới Kẹo Ngọt</h2>
+            <div id="chitiet" style="display: none;" class="mt-3">
+                <p>Không chỉ là một viên kẹo, đó là một khoảnh khắc ngọt ngào tan chảy trên đầu lưỡi.</p>
+                <p>Thế Giới Kẹo Ngọt mang đến hương vị tuổi thơ và niềm vui mỗi ngày.</p>
+            </div>
+
+            <div class="about-highlight mb-4">
+                <div class="highlight-box">✨ Công thức chọn lọc</div>
+                <div class="highlight-box">🌈 Hương vị độc đáo</div>
+                <div class="highlight-box">💖 Ngọt ngào</div>
+            </div>
+            <button id="btn" class="btn btn-success">Xem Chi tiết</button>
+        </div>
+
+        <div class="text-center">
+            <img src="./imges/cd.gif" class="img-fluid rounded-5 shadow-sm" alt="Candy GIF">
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 text-center">
+                <h1>Về chúng tôi</h1>
+                <p>
+                    Chào mừng bạn đến với <b>KẸO NGỌT</b>
+                </p>
+                <div class="row">
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/WKPAgb6HoeE?si=lRSbgdC5oqXcFfPH" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+            </div>
+
+            <div class="customer-review py-5">
+                <h2 class="text-center">💬 Khách Hàng Nói Gì?</h2>
+                <div class="review-container">
+                    <div class="review-card">
+                        <div class="review-info">
+                            <img src="./imges/tl.webp" alt="User">
+                            <h5>Nguyễn Minh Anh</h5>
+                        </div>
+                        <p>"Kẹo rất ngon và mềm, mình rất thích!"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-info">
+                            <img src="./imges/tl (1).webp" alt="User">
+                            <h5>Trần Hoàng Nam</h5>
+                        </div>
+                        <p>"Đóng gói đẹp, giao hàng siêu nhanh."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-info">
+                            <img src="./imges/tl2.png" alt="User">
+                            <h5>Lê Thảo Vy</h5>
+                        </div>
+                        <p>"Giá hợp lý, sẽ ủng hộ shop dài dài."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <h3 class="fw-bold">Thế Giới Kẹo Ngọt🍬</h3>
+                        <p>Ngọt ngào từng viên kẹo - Kết nối triệu niềm vui.</p>
+                        <p>📍 Địa chỉ: TP. Hồ Chí Minh, Việt Nam</p>
+                        <p>📞 0123 456 789</p>
+                        <p><i class="fas fa-envelope"></i> Email: lienhe@keongot.vn</p>
+                    </div>
+                    <div class="col-md-6">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241674197637!2d106.697662!3d10.775843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzMzLjAiTiAxMDbCsDQxJzUxLjYiRQ!5e0!3m2!1svi!2svn!4v1648123456789!5m2!1svi!2svn"
+                            allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <hr style="background-color: #ffffff;">
+                <p class="text-center mb-0 small opacity-75">© 2026 Thế Giới Kẹo Ngọt</p>
+            </div>
+        </footer>
+
+        <script>
+            $(document).ready(function () {
+                // Nút hiện chi tiết
+                $("#btn").click(function () {
+                    $("#chitiet").slideToggle();
+                });
+
+                // Hiện/Ẩn form Login
+                $("#btn-login").click(function () {
+                    $("#login").fadeIn();
+                });
+
+                $(".close").click(function () {
+                    $("#login").fadeOut();
+                });
+
+                // Xử lý submit form
+                $("#login").on("submit", function (e) {
+                    e.preventDefault();
+                    let user = $("#user").val();
+                    let pass = $("#password").val();
+
+                    if (user === "admin" && pass === "1234") {
+                        alert("Đăng nhập thành công!");
+                        $("#login").fadeOut();
+                    } else {
+                        alert("Sai tài khoản hoặc mật khẩu!");
+                    }
+                });
+            });
+        </script>
+</body>
+
+</html>

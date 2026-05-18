@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ | Thế Giới Kẹo Ngọt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Itim&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #fdfbff;
+            font-family: 'Itim', cursive !important;
+            color: #555;
+        }
+
+
+        .frame-header {
+            background: #ff8fab;
+            border: none;
+            color: white;
+            padding: 8px 0;
+        }
+
+        #btn-login {
+            background: #a2d2ff;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            color: #444;
+        }
+
+
+        #login {
+            width: 100%;
+            max-width: 450px;
+            background-color: #fff;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10001;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            font-family: 'Itim', cursive !important;
+        }
+
+
+        #login input {
+            width: 100%;
+            padding: 12px 20px;
+            margin-top: 5px;
+            border: 2px solid #f0f7ff;
+            border-radius: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #login input:focus {
+            border-color: #a2d2ff;
+            box-shadow: 0 0 8px rgba(162, 210, 255, 0.4);
+        }
+
+
+        #login label {
+            color: #555;
+            font-size: 0.95rem;
+            margin-left: 5px;
+        }
+
+
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+        }
+
+
+        .navbar {
+            background: white !important;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 5px 20px rgba(162, 210, 255, 0.15);
+            margin-bottom: 20px;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: #ff8fab !important;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: #555 !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover {
+            color: #ff8fab !important;
+        }
+
+        .frame-danhmuc {
+            background: white;
+            border: none !important;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .frame-danhmuc h3 {
+            background: #ff8fab;
+            color: white;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
+            border: none;
+            font-size: 1.3rem;
+        }
+
+
+        .frame-danhmuc ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 15px 0 0 0 !important;
+        }
+
+        .frame-danhmuc ul li {
+            list-style: none !important;
+            background: #f0f7ff;
+            margin-bottom: 10px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            color: #444;
+            font-weight: bold;
+            transition: 0.3s;
+            display: block;
+            border-left: 5px solid #a2d2ff;
+        }
+
+        .frame-danhmuc ul li:hover {
+            background: #a2d2ff;
+            color: white;
+            transform: translateX(10px);
+        }
+
+
+        .banner,
+        .carousel,
+        .carousel-inner,
+        .carousel-item img {
+            border-radius: 0 !important;
+            height: 400px;
+            object-fit: cover;
+            border: none !important;
+        }
+
+
+        .card {
+            border: none !important;
+            border-radius: 25px;
+            background: white;
+            padding: 10px;
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 30px rgba(255, 143, 171, 0.2);
+        }
+
+        .card-title {
+            color: #ff8fab;
+        }
+
+        .btn-success {
+            background: #a2d2ff !important;
+            border: none !important;
+            border-radius: 50px !important;
+            font-weight: bold;
+            color: #444 !important;
+        }
+
+        .btn-success:hover {
+            background: #ff8fab !important;
+            color: white !important;
+        }
+
+
+        footer {
+            background-color: #a2d2ff;
+            color: #444;
+            border: none;
+
+
+            border-radius: 0 !important;
+
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            font-family: 'Itim', cursive !important;
+        }
+
+        footer h3 {
+            color: #ff8fab;
+            font-weight: bold;
+            font-size: 1.8rem;
+            text-shadow: 1px 1px 0px white;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+
+        footer iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            border: 4px solid white;
+        }
+
+
+        footer a {
+            color: #ff8fab;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        .section-title {
+            font-family: 'Itim', cursive !important;
+            color: #ff8fab;
+            font-weight: bold;
+            margin: 40px 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px dotted #ffb6c1;
+            display: block;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .btn-candy {
+            background-color: #ff8fab !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 50px !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="cart-popup"
+        style="display: none; width: 100%; max-width: 450px; background-color: #fff; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10001; border-radius: 20px; padding: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); font-family: 'Quicksand', sans-serif;">
+        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h4 class="fw-bold text-success mb-0">GIỎ HÀNG</h4>
+            <span class="close-cart fs-3" style="cursor:pointer">&times;</span>
+        </div>
+
+        <div style="max-height: 250px; overflow-y: auto;">
+            <div class="d-flex align-items-center mb-3 p-2">
+                <img src="./imges/spkd8.png" width="50" class="rounded me-3">
+                <div class="flex-grow-1">
+                    <div class="fw-bold small">Kẹo Gấu Gummy</div>
+                    <div class="text-danger small">25,000đ x 1</div>
+                </div>
+                <button class="btn btn-sm text-muted"><i class="fas fa-trash-alt"></i></button>
+            </div>
+        </div>
+
+        <div class="border-top pt-3 mt-2">
+            <div class="d-flex justify-content-between fw-bold mb-3">
+                <span>Tổng tiền:</span>
+                <span class="text-danger">25,000đ</span>
+            </div>
+            <div class="row g-2">
+                <div class="col-6">
+                    <button class="btn btn-outline-secondary w-100 rounded-pill close-cart">Đóng</button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-success w-100 rounded-pill">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <form action="" id="login" class="p-4" style="display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h4 class="fw-bold text-success mb-0">ĐĂNG NHẬP</h4>
+            <span class="close fs-3" style="cursor:pointer">x</span>
+        </div>
+
+        <div class="mb-3">
+            <label for="user" class="fw-bold">Tài khoản</label>
+            <input type="text" id="user" placeholder="Nhập tên đăng nhập...">
+        </div>
+
+        <div class="mb-4">
+            <label for="password" class="fw-bold">Mật khẩu</label>
+            <input type="password" id="password" placeholder="Nhập mật khẩu...">
+        </div>
+
+        <div class="row g-2">
+            <div class="col-6">
+                <button type="button" class="btn btn-outline-secondary w-100 rounded-pill py-2 close">Đóng</button>
+            </div>
+            <div class="col-6">
+                <button type="submit" class="btn btn-success w-100 rounded-pill py-2 fw-bold">Đăng nhập</button>
+            </div>
+        </div>
+    </form>
+
+    <header class="container-fluid frame-header">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-6 col-md-4">
+                    <i class="fas fa-phone-alt me-2"></i> HOTLINE: 0912345678
+                </div>
+                <div class="col-md-4 d-none d-md-block text-center" style="font-size: 1.1rem;">
+                    🍬 Thế giới kẹo ngọt 🍬
+                </div>
+                <div class="col-6 col-md-4 text-end">
+                    <button type="button" id="btn-login" class="btn px-4 shadow-sm">
+                        <i class="fas fa-user-circle me-1"></i> Đăng Nhập
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-light mt-2">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">🍬 KẸO NGỌT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" href="trangchu.html">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gioithieu.html">Giới Thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tintuc.html">Tin Tức</a></li>
+                        <li class="nav-item"><a class="nav-link" href="lienhe.html">Liên Hệ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="giohang.html">Giỏ Hàng</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2 border-info rounded-pill" type="text"
+                            placeholder="Tìm kẹo ngon...">
+                        <button class="btn btn-candy" type="button">Tìm</button>
+                    </form>
+                    <a href="javascript:void(0)" id="open-cart" class="ms-3 position-relative"
+                        style="text-decoration: none; color: #28a745; font-weight: bold;">
+                        <i class="fas fa-shopping-basket fa-lg"></i>
+                        <span class="d-none d-md-inline ms-1">Giỏ hàng</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="font-size: 0.6rem;">
+                            3
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-3 frame-danhmuc">
+                <h3>DANH MỤC</h3>
+                <ul>
+                    <li>Kẹo Cứng
+                        <ul>
+                            <li>Kẹo Ngậm</li>
+                            <li>Kẹo Bạc Hà</li>
+                            <li>Kẹo Trái Cây</li>
+                        </ul>
+                    </li>
+                    <li>Kẹo Mềm
+                        <ul>
+                            <li>Kẹo Dẻo</li>
+                            <li>Kẹo Marshmallow</li>
+                            <li>Kẹo Dẻo Trái Cây</li>
+                        </ul>
+                    </li>
+                    <li>Kẹo Socol</li>
+                    <li>Thạch Trái Cây</li>
+            </div>
+
+            <div class="col-md-9 frame-danhmuc p-0">
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner banner">
+                        <div class="carousel-item active">
+                            <img src="./imges/banner.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./imges/banner.jpg" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./imges/banner.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+
+                </div>
+            </div>
+
+
+            <div class="row my-2">
+                <h3 class="section-title text-uppercase text-center">🌈 Sản Phẩm Bán Chạy</h3>
+            </div>
+            <div class="row m-0 p-0" id="spbc"></div>
+
+            <div class="row my-2">
+                <h3 class="section-title text-uppercase text-center">🌟 Sản Khuyến Mãi</h3>
+            </div>
+            <div class="row m-0 p-0" id="spkm"></div>
+
+            <div class="row my-4">
+                <h3 class="section-title text-uppercase text-center">⚡ GIAO HÀNG TỐC ĐỘ ÁNH SÁNG</h3>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h5>🚚 Giao hàng nhanh</h5>
+                    <p>Giao hàng toàn TP.HCM trong ngày.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>📦 Đóng gói cẩn thận</h5>
+                    <p>Kẹo được đóng gói kỹ, đảm bảo vệ sinh.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>💰 Thanh toán linh hoạt</h5>
+                    <p>Thanh toán khi nhận hàng hoặc chuyển khoản.</p>
+                </div>
+            </div>
+
+            <div class="row my-4">
+                <h3 class="section-title text-uppercase text-center">✨ KHÁCH HÀNG NÓI GÌ VỀ TỤI MÌNH?</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card p-3 text-center">
+                        <div class="fr1"><img src="./imges/tl2.png" alt="" style="width:150px"></div>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Kẹo rất ngon, đóng gói đẹp.</p><b>Mỹ Anh</b>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center">
+                        <div class="fr1"><img src="./imges/tl.webp" alt="" style="width:150px"></div>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Nhiều loại kẹo lạ, giá rẻ.</p><b>Anh Thư</b>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3 text-center">
+                        <div class="fr1"><img src="./imges/tl (1).webp" alt="" style="width:150px"></div>
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>Giao hàng nhanh, sẽ mua lại</p><b>Văn Quân</b>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h3 class="fw-bold">Thế Giới Kẹo Ngọt🍬</h3>
+                    <p>Ngọt ngào từng viên kẹo - Kết nối triệu niềm vui.</p>
+                    <p>📍 Địa chỉ: TP. Hồ Chí Minh, Việt Nam</p>
+                    <p>📞 0123 456 789</p>
+                    <p><i class="fas fa-envelope"></i> Email: lienhe@keongot.vn</p>
+                </div>
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241674197637!2d106.697662!3d10.775843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzMzLjAiTiAxMDbCsDQxJzUxLjYiRQ!5e0!3m2!1svi!2svn!4v1648123456789!5m2!1svi!2svn"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <hr style="background-color: #ffffff;">
+            <p class="text-center mb-0 small opacity-75">© 2026 Thế Giới Kẹo Ngọt</p>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            // 1. Hiệu ứng Menu danh mục
+            $(".frame-danhmuc > ul > li > ul").hide();
+            $(".frame-danhmuc > ul > li").click(function (e) {
+                $(this).children("ul").slideToggle();
+                e.stopPropagation();
+            });
+
+            // 2. Hàm chung để đóng/mở Popup
+            function togglePopup(popupId, isShow) {
+                if (isShow) {
+                    $(popupId).fadeIn();
+                    $("#overlay").fadeIn();
+                } else {
+                    $(".popup-form, #cart-popup, #overlay").fadeOut();
+                }
+            }
+
+            // 3. Xử lý Đăng Nhập
+            $("#btn-login").click(function () { togglePopup("#login", true); });
+            $(".close, #overlay").click(function () { togglePopup(null, false); });
+
+            // 4. Xử lý Giỏ Hàng (Popup)
+            $("#open-cart").click(function (e) {
+                e.preventDefault();
+                togglePopup("#cart-popup", true);
+            });
+            $(".close-cart").click(function () { togglePopup(null, false); });
+
+            // 5. Nút "Thanh Toán" trên Popup -> Chuyển hướng sang trang giohang.html
+            $("#btn-go-to-checkout").click(function () {
+                window.location.href = "giohang.html";
+            });
+        });
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            // Mở đăng nhập
+            $("#btn-login").click(function () {
+                $("#login, #overlay").fadeIn();
+            });
+
+            // Đóng đăng nhập (bấm nút X, nút Đóng hoặc bấm ra ngoài màn hình mờ)
+            $(".close, #overlay").click(function () {
+                $("#login, #overlay").fadeOut();
+            });
+
+            // Xử lý giỏ hàng (giữ nguyên logic của bạn)
+            $("#open-cart").click(function (e) {
+                e.preventDefault();
+                $("#cart-popup, #overlay").fadeIn();
+            });
+
+            $(".close-cart, #overlay").click(function () {
+                $("#cart-popup, #overlay").fadeOut();
+            });
+        });
+    </script>
+
+
+    <div id="cart-popup"
+        style="display: none; width: 100%; max-width: 500px; background-color: #fff; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10001; border-radius: 25px; padding: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); font-family: 'Quicksand', sans-serif;">
+
+        <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h4 class="fw-bold text-success mb-0">GIỎ HÀNG CỦA BẠN</h4>
+            <span class="close-cart fs-3" style="cursor:pointer">&times;</span>
+        </div>
+
+        <div id="cart-items-list" style="max-height: 350px; overflow-y: auto; margin-bottom: 20px;">
+
+            <div class="d-flex align-items-center mb-3 p-2 border-bottom">
+                <img src="./imges/spkd8.png" width="60" height="60" class="rounded me-3" style="object-fit: cover;">
+                <div class="flex-grow-1">
+                    <div class="fw-bold text-dark">Kẹo Gấu Gummy</div>
+                    <div class="text-danger fw-bold small">25,000đ</div>
+
+                    <div class="d-flex align-items-center mt-1">
+                        <button class="btn btn-sm btn-outline-secondary rounded-circle px-2 py-0">-</button>
+                        <span class="mx-2 fw-bold">1</span>
+                        <button class="btn btn-sm btn-outline-secondary rounded-circle px-2 py-0">+</button>
+                    </div>
+                </div>
+                <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
+            </div>
+
+            <div class="d-flex align-items-center mb-3 p-2 border-bottom">
+                <img src="./imges/1.jpg" width="60" height="60" class="rounded me-3" style="object-fit: cover;">
+                <div class="flex-grow-1">
+                    <div class="fw-bold text-dark">Kẹo Mút Cầu Vồng</div>
+                    <div class="text-danger fw-bold small">15,000đ</div>
+
+                    <div class="d-flex align-items-center mt-1">
+                        <button class="btn btn-sm btn-outline-secondary rounded-circle px-2 py-0">-</button>
+                        <span class="mx-2 fw-bold">2</span>
+                        <button class="btn btn-sm btn-outline-secondary rounded-circle px-2 py-0">+</button>
+                    </div>
+                </div>
+                <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
+            </div>
+
+        </div>
+
+        <div class="border-top pt-3">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <span class="fs-5 fw-bold">Tổng tiền:</span>
+                <span class="fs-4 fw-bold text-danger">55,000đ</span>
+            </div>
+
+            <div class="row g-2">
+                <div class="col-6">
+                    <button class="btn btn-outline-secondary w-100 rounded-pill py-2 close-cart">Tiếp tục mua</button>
+                </div>
+                <div class="col-6">
+                    <button id="btn-go-to-checkout" class="btn btn-success w-100 rounded-pill py-2 fw-bold">Thanh
+                        Toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/sanpham.js"></script>
+    <script src="js/spbc.js"></script>
+    <script src="js/spkm.js"></script>
+    <script src="js/addCart.js"></script>
+</body>
+
+</html>
